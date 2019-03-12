@@ -5,7 +5,7 @@
     'name': 'HR attendance Check in/out from Biostar2 RFID database',
     'version': '0.1',
     'category': 'Human Resources',
-    'website': 'https://github.com/solvosci/hr',
+    'website': 'https://github.com/solvosci/slv-hr',
     'author': 'Solvos Consultoría Informática',
     'license': 'LGPL-3',
     'application': False,
