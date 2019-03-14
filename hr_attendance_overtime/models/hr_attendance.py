@@ -37,13 +37,13 @@ class HrAttendance(models.Model):
 
             Approved leaves and public holidays always implies computed after hours, ignoring calendar
         """
-        ResourceCalendar = self.env['resource.calendar']
         for att in self:
             if att.check_in and att.check_out:
                 att.worked_hours_within_calendar, att.worked_hours_after_calendar = \
-                    ResourceCalendar.get_worked_within_after_hours(
-                        att.check_in, att.check_out, att.employee_id.resource_id.id,
-                        att.employee_id.company_id.after_calendar_min_tolerance_minutes
-                    )
+                    att.employee_id.resource_calendar_id.get_worked_within_after_hours(
+                        start_datetime=fields.Datetime.from_string(att.check_in),
+                        end_datetime=fields.Datetime.from_string(att.check_out),
+                        resource_id=att.employee_id.resource_id.id,
+                        min_tolerance_minutes=att.employee_id.company_id.after_calendar_min_tolerance_minutes)
             else:
                 att.worked_hours_within_calendar, att.worked_hours_after_calendar = (0, 0)

@@ -19,7 +19,7 @@
     'data': [
         # 'security/hr_attendance_rfid.xml',
         # 'security/ir.model.access.csv',
-        # 'views/hr_attendance.xml',
+        'views/hr_attendance_views.xml',
         'views/res_config_settings_views.xml',
         # 'report/report_views.xml',
         # 'report/report_menuitem.xml',

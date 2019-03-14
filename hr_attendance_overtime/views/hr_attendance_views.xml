@@ -1,0 +1,15 @@
+<odoo>
+  <record id="view_attendance_tree" model="ir.ui.view">
+      <field name="name">hr.attendance.tree</field>
+      <field name="model">hr.attendance</field>
+      <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='check_out']" position="after">
+          <field name="worked_hours_within_calendar" string="Normal time (h)" widget="float_time"
+                 groups="hr_attendance.group_hr_attendance_manager"/>
+          <field name="worked_hours_after_calendar" string="Overtime (h)" widget="float_time"
+                 groups="hr_attendance.group_hr_attendance_manager"/>
+        </xpath>
+      </field>
+  </record>
+</odoo>
