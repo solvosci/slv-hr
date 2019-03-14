@@ -47,3 +47,27 @@ class HrAttendance(models.Model):
                         min_tolerance_minutes=att.employee_id.company_id.after_calendar_min_tolerance_minutes)
             else:
                 att.worked_hours_within_calendar, att.worked_hours_after_calendar = (0, 0)
+
+    def worked_hours_within_after_recalculation(self, datetime_from, datetime_to, calendar_id, resource_id=None):
+        """
+        Force compute of attendances that should be affected by leaves with the related data
+        """
+        attendance_domain = [('employee_id.resource_calendar_id', '=', calendar_id),
+                             ('check_out', '!=', False)]
+        if resource_id:
+            attendance_domain.append(('employee_id.resource_id', '=', resource_id))
+
+        attendance_domain.append(('check_in', '>', datetime_from))
+        attendance_domain.append(('check_out', '<', datetime_from))
+        attendances_1 = self.search(attendance_domain)
+
+        attendance_domain[-2] = ('check_in', '>', datetime_to)
+        attendance_domain[-1] = ('check_out', '<', datetime_to)
+        attendances_2 = self.search(attendance_domain)
+
+        attendance_domain[-2] = ('check_in', '<', datetime_from)
+        attendance_domain[-1] = ('check_out', '>', datetime_to)
+        attendances_3 = self.search(attendance_domain)
+
+        attendances = attendances_1 | attendances_2 | attendances_3
+        attendances._compute_worked_hours_within_after_calendar()

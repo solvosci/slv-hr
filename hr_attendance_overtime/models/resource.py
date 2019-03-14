@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from odoo import models
+from odoo import models, api
 
 _logger = logging.getLogger(__name__)
 
@@ -75,3 +75,47 @@ class ResourceCalendar(models.Model):
         """
         _logger.info('Obtained (%f, %f)' % (worked_hours_within_calendar, worked_hours_after_calendar))
         return worked_hours_within_calendar, worked_hours_after_calendar
+
+
+class ResourceCalendarLeaves(models.Model):
+    _inherit = 'resource.calendar.leaves'
+
+    @api.model
+    def create(self, values):
+        leave_id = super(ResourceCalendarLeaves, self).create(values)
+        self.env['hr.attendance'].worked_hours_within_after_recalculation(
+            datetime_from=leave_id.date_from,
+            datetime_to=leave_id.date_to,
+            calendar_id=leave_id.calendar_id.id,
+            resource_id=leave_id.resource_id.id)
+        return leave_id
+
+    def write(self, values):
+        self.ensure_one()
+        args_before = {
+            'datetime_from': self.date_from,
+            'datetime_to': self.date_to,
+            'calendar_id': self.calendar_id.id,
+            'resource_id': self.resource_id.id}
+        ret = super(ResourceCalendarLeaves, self).write(values)
+        if any(['date_from' in values, 'date_to' in values, 'resource_id' in values, 'calendar_id' in values]):
+            args_after = {
+                'datetime_from': values.get('datetime_from') or self.date_from,
+                'datetime_to': values.get('datetime_to') or self.date_to,
+                'calendar_id': values.get('calendar_id') or self.calendar_id.id,
+                'resource_id': values.get('resource_id') or self.resource_id.id}
+            self.env['hr.attendance'].worked_hours_within_after_recalculation(**args_before)
+            self.env['hr.attendance'].worked_hours_within_after_recalculation(**args_after)
+        return ret
+
+    def unlink(self):
+        for leave in self:
+            args = {
+                'datetime_from': leave.date_from,
+                'datetime_to': leave.date_to,
+                'calendar_id': leave.calendar_id.id,
+                'resource_id': leave.resource_id.id}
+            ret = super(ResourceCalendarLeaves, self).unlink()
+            self.env['hr.attendance'].worked_hours_within_after_recalculation(**args)
+            return ret
+
