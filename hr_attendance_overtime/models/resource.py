@@ -44,6 +44,17 @@ class ResourceCalendar(models.Model):
                 k += 1
             i += 1
 
+        # The current interval list does not take into account the public holidays
+        # We're supress those intervals whose start datetime matches a public holiday day
+        # FIXME UTC / TZ problem. The current work intervals are in UTC, but the public holidays definition
+        #       are still not. The best approach should be obtain the interval start datetime related to a company or
+        #       calendar defined TZ before comparing with the public holiday date
+        employee_id = self.env['hr.employee'].search([('resource_id', '=', resource_id)]).id
+        HolidaysPublic = self.env['hr.holidays.public']
+        work_intervals = list(filter(
+            lambda x: not HolidaysPublic.is_public_holiday(x[0], employee_id=employee_id),
+            work_intervals))
+
         worked_hours_within_calendar = worked_hours_after_calendar = 0
 
         # On every iteration, we compare the current work_interval with the last "initial" datetime registered
