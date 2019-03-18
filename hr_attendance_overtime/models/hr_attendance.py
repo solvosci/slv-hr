@@ -8,10 +8,12 @@ class HrAttendance(models.Model):
 
     worked_hours_within_calendar = fields.Float(
         'Worked hours within calendar',
-        compute='_compute_worked_hours_within_after_calendar')
+        compute='_compute_worked_hours_within_after_calendar',
+        store=True)
     worked_hours_after_calendar = fields.Float(
         'Worked hours within calendar',
-        compute='_compute_worked_hours_within_after_calendar')
+        compute='_compute_worked_hours_within_after_calendar',
+        store=True)
     """
     resource_calendar_id = fields.Many2one(
         'Employee calendar',
@@ -23,7 +25,7 @@ class HrAttendance(models.Model):
         readonly=True)
     """
 
-    @api.depends('check_in', 'check_out')
+    @api.depends('employee_id', 'check_in', 'check_out')
     def _compute_worked_hours_within_after_calendar(self):
         """ Calculates two different categories for worked hours:
             * Worked within employee calendar
@@ -57,17 +59,21 @@ class HrAttendance(models.Model):
         if resource_id:
             attendance_domain.append(('employee_id.resource_id', '=', resource_id))
 
-        attendance_domain.append(('check_in', '>', datetime_from))
-        attendance_domain.append(('check_out', '<', datetime_from))
+        attendance_domain.append(('check_in', '<', datetime_from))
+        attendance_domain.append(('check_out', '>', datetime_from))
         attendances_1 = self.search(attendance_domain)
 
-        attendance_domain[-2] = ('check_in', '>', datetime_to)
-        attendance_domain[-1] = ('check_out', '<', datetime_to)
+        attendance_domain[-2] = ('check_in', '<', datetime_to)
+        attendance_domain[-1] = ('check_out', '>', datetime_to)
         attendances_2 = self.search(attendance_domain)
 
         attendance_domain[-2] = ('check_in', '<', datetime_from)
         attendance_domain[-1] = ('check_out', '>', datetime_to)
         attendances_3 = self.search(attendance_domain)
 
-        attendances = attendances_1 | attendances_2 | attendances_3
+        attendance_domain[-2] = ('check_in', '>', datetime_from)
+        attendance_domain[-1] = ('check_out', '<', datetime_to)
+        attendances_4 = self.search(attendance_domain)
+
+        attendances = attendances_1 | attendances_2 | attendances_3 | attendances_4
         attendances._compute_worked_hours_within_after_calendar()
