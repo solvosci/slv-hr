@@ -3,6 +3,8 @@
 import logging
 from odoo import models, api
 
+from odoo.addons.resource.models.resource import to_naive_user_tz
+
 _logger = logging.getLogger(__name__)
 
 
@@ -46,13 +48,18 @@ class ResourceCalendar(models.Model):
 
         # The current interval list does not take into account the public holidays
         # We're supress those intervals whose start datetime matches a public holiday day
-        # FIXME UTC / TZ problem. The current work intervals are in UTC, but the public holidays definition
-        #       are still not. The best approach should be obtain the interval start datetime related to a company or
-        #       calendar defined TZ before comparing with the public holiday date
+        # UTC/TZ problem: datetime_from and datetime_and are expressed taking into account user TZ, because
+        #  is_public_holiday uses attendance intervals un UTC.
+        # E.g. with Europe/Madrid TZ, the public holiday 2019-03-19 (winter) actually starts
+        #      in order to make comparisons with hr.attendance intervals we make check_in UTC date to user's TZ
+        #      An attendance starting in 2019-03-18 23:30:00 UTC (or 2019-03-19 00:30:00 UTC+1) is converted to
+        #      "2019-03-19 00:30:00 UTC" and is_public_holiday(), which compares only dates, is able to return True
+        # As we said, We use the user TZ for this (manager users should be in the same TZ of the employees)
         employee_id = self.env['hr.employee'].search([('resource_id', '=', resource_id)]).id
         HolidaysPublic = self.env['hr.holidays.public']
         work_intervals = list(filter(
-            lambda x: not HolidaysPublic.is_public_holiday(x[0], employee_id=employee_id),
+            lambda x: not HolidaysPublic.is_public_holiday(to_naive_user_tz(x[0], self.env.user),
+                                                           employee_id=employee_id),
             work_intervals))
 
         worked_hours_within_calendar = worked_hours_after_calendar = 0
