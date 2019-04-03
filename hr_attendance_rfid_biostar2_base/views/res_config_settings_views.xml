@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@data-key='hr_attendance']" position="inside">
                 <h2>BioStar2 settings</h2>
-                <div class="row mt16 o_settings_container">
+                <div class="row mt16 o_settings_container" data-key="hr_attendance_rfid_biostar2_base">
                     <div class="col-md-6 o_setting_box">
                         <div class="o_setting_right_pane">
                             <label for="active_biostar2_server_id"/>

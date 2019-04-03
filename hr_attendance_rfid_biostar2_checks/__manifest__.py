@@ -20,6 +20,7 @@
         # 'views/res_config_settings.xml',
         # 'report/report_views.xml',
         # 'report/report_menuitem.xml',
+        'views/res_config_settings_views.xml'
     ],
     'demo': [
         # 'demo/'
