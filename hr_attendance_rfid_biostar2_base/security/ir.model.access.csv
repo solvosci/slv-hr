@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_rfid_biostar2_base_hr_attendance_rfid_biostar2_base,hr_attendance_rfid_biostar2_base.hr_attendance_rfid_biostar2_base,model_hr_attendance_rfid_biostar2_base_hr_attendance_rfid_biostar2_base,,1,0,0,0

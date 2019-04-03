@@ -11,8 +11,7 @@
     'application': False,
     'installable': True,
     'depends': [
-        'hr_attendance_rfid',
-        'base_external_dbsource_mysql',
+        'hr_attendance_rfid_biostar2_base',
     ],
     'data': [
         # 'security/hr_attendance_rfid.xml',
