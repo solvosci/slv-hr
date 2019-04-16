@@ -16,10 +16,7 @@
     'data': [
         # 'security/hr_attendance_rfid.xml',
         # 'security/ir.model.access.csv',
-        # 'views/hr_attendance.xml',
-        # 'views/res_config_settings.xml',
-        # 'report/report_views.xml',
-        # 'report/report_menuitem.xml',
+        'data/ir_cron.xml',
         'views/res_config_settings_views.xml'
     ],
     'demo': [
