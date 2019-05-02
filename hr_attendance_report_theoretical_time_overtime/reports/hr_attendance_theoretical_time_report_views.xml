@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_attendance_theoretical_view_pivot" model="ir.ui.view">
+        <field name="model">hr.attendance.theoretical.time.report</field>
+        <field name="inherit_id" ref="hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='worked_hours']" position="after">
+                <field name="worked_hours_within_calendar" type="measure" widget="float_time"/>
+                <field name="worked_hours_after_calendar" type="measure" widget="float_time"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
