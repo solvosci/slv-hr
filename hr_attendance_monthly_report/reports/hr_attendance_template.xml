@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_hr_attendance_monthly_pdf">
+    <!-- <t t-set="doc" t-value="doc.with_context({'lang': lang})"/> -->
+    <div class="page ml-3 mr-3" style="font-size: 11px">
+      <div style="page-break-after: always;">
+        <div class="row mb-1" style="border: 1px solid rgb(222, 226, 230);">
+          <div class="col-12">
+            <div class="row d-block text-center" style="font-size: 14px; border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <span class="col-12 d-block text-center">
+                <strong>WORKERS' DAY REGISTRY</strong>
+              </span>
+              <span class="col-12 d-block text-center" style="font-size: 11px;"><t t-esc="company_subtitle"/></span>
+            </div>
+            <div class="row">
+              <div class="col-3" style="border-right: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+                <span class="d-block">MONTH:</span>
+              </div>
+              <div class="col-3" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center"><t t-esc="month"/></span>
+              </div>
+              <div class="col-3" style="border-right: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+                <span class="d-block">YEAR:</span>
+              </div>
+              <div class="col-3">
+                <span class="d-block text-center"><t t-esc="year"/></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1" style="border: 1px solid rgb(222, 226, 230);">
+          <div class="col-12">
+            <div class="row" style="border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-12">
+                <span class="d-block text-center">
+                  <strong>COMPANY DATA</strong>
+                </span>
+              </div>
+            </div>
+            <div class="row" style="border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">BUSINESS NAME</span>
+              </div>
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">CIF</span>
+              </div>
+              <div class="col-4">
+                <span class="d-block text-center">CCC</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center"><t t-esc="company_name"/></span>
+              </div>
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center"><t t-esc="company_vat"/></span>
+              </div>
+              <div class="col-4">
+                <span class="d-block text-center"><t t-esc="company_ccc"/></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1" style="border: 1px solid rgb(222, 226, 230);">
+          <div class="col-12">
+            <div class="row" style="border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-12">
+                <span class="d-block text-center">
+                  <strong>WORKER DATA</strong>
+                </span>
+              </div>
+            </div>
+            <div class="row" style="border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">NAME AND SURNAME</span>
+              </div>
+              <div class="col-2" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">SNN</span>
+              </div>
+              <div class="col-2" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">VAT</span>
+              </div>
+              <div class="col-4">
+                <span class="d-block text-center">Working day</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">
+                  <t t-esc="doc['employee_name']"/>
+                </span>
+              </div>
+              <div class="col-2" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">
+                  <t t-esc="doc['employee_naf']"/>
+                </span>
+              </div>
+              <div class="col-2" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">
+                  <t t-esc="doc['employee_vat']"/>
+                </span>
+              </div>
+              <div class="col-4">
+                <span class="d-block text-center">
+                  <t t-esc="doc['hours_week']" widget="float_time"/>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-sm" style="margin-bottom: 0;">
+            <thead>
+              <tr>
+                <th class="text-center" style="border-top: none;" scope="col">DAY</th>
+                <th class="text-center" style="border-top: none;" scope="col">HOURS</th>
+                <th class="text-center" style="border-top: none;" scope="col">ENTRY</th>
+                <th class="text-center" style="border-top: none;" scope="col">EXIT</th>
+                <th class="text-center" style="border-top: none;" scope="col">TIME</th>
+                <th class="text-center" style="border-top: none;" scope="col">DAY TOTAL</th>
+                <th class="text-center" style="border-top: none;" scope="col">EXCEEDED TOTAL</th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 8px">
+              <t t-foreach="doc['days']" t-as="day">
+                <t t-set="holiday" t-value="''"/>
+                <t t-set="border-color" t-value="'rgb(222, 226, 230)'"/>
+
+                <t t-if="day['absence']">
+                  <t t-if="day['absence'] == 'sick_leave'">
+                    <t t-set="holiday" t-value="'table-warning'"/>
+                    <t t-set="border-color" t-value="'#ffdf7e'"/>
+                  </t>
+                  <t t-if="day['absence'] == 'public_holiday'">
+                    <t t-set="holiday" t-value="'table-danger'"/>
+                    <t t-set="border-color" t-value="'rgb(223, 194, 196)'"/>
+                  </t>
+                  <t t-if="day['absence'] == 'day_off'">
+                    <t t-set="holiday" t-value="'table-success'"/>
+                    <t t-set="border-color" t-value="'#8fd19e'"/>
+                  </t>
+                  <t t-if="day['absence'] == 'holidays'">
+                    <t t-set="holiday" t-value="'table-primary'"/>
+                    <t t-set="border-color" t-value="'#7abaff'"/>
+                  </t>
+                </t>
+
+                <tr t-att-class="holiday">
+                  <th class="text-center" t-attf-style="vertical-align: middle; border-right: 1px solid {border-color}; font-size: 10px;" rowspan="2">
+                    <t t-esc="day['day']"/>
+                  </th>
+                  <td style="padding: 0.1rem; font-size: 9px;">Moorning</td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <span class="d-block text-center">
+                      <t t-esc="day['morning']['entry']"/>
+                    </span>
+                  </td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <span class="d-block text-center">
+                      <t t-esc="day['morning']['exit']"/>
+                    </span>
+                  </td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <span class="d-block text-center">
+                      <t t-esc="day['morning']['time']"/>
+                    </span>
+                  </td>
+                  <td class="text-center" t-attf-style="padding: 0.1rem; vertical-align: middle; border-left: 1px solid {border-color}; font-size: 10px;" rowspan="2">
+                    <span class="d-block text-center">
+                      <t t-esc="day['total_day']"/>
+                    </span>
+                  </td>
+                  <td class="text-center" t-attf-style="padding: 0.1rem; vertical-align: middle; border-left: 1px solid {border-color}; font-size: 10px;" rowspan="2">
+                    <span class="d-block text-center">
+                      <t t-if="day['negative']">-</t><t t-esc="day['total_exceeded']"/>
+                    </span>
+                  </td>
+                </tr>
+                <tr t-att-class="holiday">
+                  <td style="padding: 0.1rem; font-size: 9px;">Afternoon</td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <t t-esc="day['afternoon']['entry']"/>
+                  </td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <t t-esc="day['afternoon']['exit']"/>
+                  </td>
+                  <td class="text-center" style="padding: 0.1rem;">
+                    <t t-esc="day['afternoon']['time']"/>
+                  </td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+        <div class="row mt-1">
+          <div class="col-6" style="height: 35px;">
+            <div class="d-flex justify-content-center align-items-center">
+              <span class="d-block mr-1 table-warning" style="height: 15px; width: 15px;"/>
+              <span class="d-block mr-2 text-center">Sick Leave</span>
+              <span class="d-block mr-1 table-danger" style="height: 15px; width: 15px;"/>
+              <span class="d-block mr-2 text-center">Public Holiday</span>
+              <span class="d-block mr-1 table-success" style="height: 15px; width: 15px;"/>
+              <span class="d-block mr-2 text-center">Day Off</span>
+              <span class="d-block mr-1 table-primary" style="height: 15px; width: 15px;"/>
+              <span class="d-block text-center">Holidays</span>
+            </div>
+            <div class="row mr-1 mt-3" style="border: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-6" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">
+                  <strong>HOURS TOTAL</strong>
+                </span>
+              </div>
+              <div class="col-6">
+                <span class="d-block text-center">
+                  <strong>HOURS EXCEEDED</strong>
+                </span>
+              </div>
+            </div>
+            <div class="row mr-1" style="border: 1px solid rgb(222, 226, 230); border-top: none;">
+              <div class="col-6" style="border-right: 1px solid rgb(222, 226, 230);">
+                <span class="d-block text-center">
+                  <strong><t t-esc="doc['total_hours']"/></strong>
+                </span>
+              </div>
+              <div class="col-6">
+                <span class="d-block text-center">
+                  <strong><t t-esc="doc['exceeded_hours']"/></strong>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6" style="border: 1px solid rgb(222, 226, 230);">
+            <div class="row" style="border-bottom: 1px solid rgb(222, 226, 230); background-color: rgba(0,0,0,.05);">
+              <div class="col-12">
+                <span class="d-block text-center">
+                  <strong>Worker signature</strong>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12" style="height: 55px">
+                <span class="d-block text-center"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="report_hr_attendance_monthly">
+    <t t-call="web.basic_layout">
+      <t t-foreach="employee_ids" t-as="doc">
+        <t t-call="hr_attendance_monthly_report.report_hr_attendance_monthly_pdf" t-lang="lang"/>
+      </t>
+    </t>
+  </template>
+
+</odoo>
