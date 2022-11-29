@@ -252,7 +252,7 @@
   <template id="report_hr_attendance_monthly">
     <t t-call="web.basic_layout">
       <t t-foreach="employee_ids" t-as="doc">
-        <t t-call="hr_attendance_monthly_report.report_hr_attendance_monthly_pdf" t-lang="lang"/>
+        <t t-call="hr_attendance_monthly_report.report_hr_attendance_monthly_pdf" t-lang="user.lang"/>
       </t>
     </t>
   </template>
