@@ -48,8 +48,17 @@ class HrHolidays(models.Model):
 
     @api.one
     def _check_security_manager_rights(self):
-        if self.manager_user_id.id != self.env.user.id:
+        if (
+            self.manager_user_id.id != self.env.user.id
+            and
+            not self.env.user.has_group(
+                "hr_holidays.group_hr_holidays_manager"
+            )
+        ):
             raise UserError(
-                _("Only %s can approve/validate/refuse leaves for the employee %s")
+                _(
+                    "Only %s or a Leave Manager can approve/validate/refuse"
+                    " leaves for the employee %s"
+                )
                 % (self.manager_user_id.name, self.employee_id.name)
             )
