@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.3",
     "category": "Operations/HR",
     "website": "https://github.com/solvosci/slv-hr",
     "depends": [

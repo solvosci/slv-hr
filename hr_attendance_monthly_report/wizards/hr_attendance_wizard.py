@@ -20,7 +20,13 @@ class HrAttendanceWizard(models.TransientModel):
 
     def generate_report_by_employee_month(self):
         hr_attendance_ids = self.env['hr.attendance']
-        last_day_month = date(self.month_year.year, self.month_year.month, 1).replace(month=self.month_year.month + 1) - timedelta(days=1)
+        if not self.month_year.month == 12:
+            last_day_month = date(self.month_year.year, self.month_year.month, 1).replace(month=self.month_year.month + 1) - timedelta(days=1)
+        else:
+            last_day_month = date(self.month_year.year, self.month_year.month, 1).replace(month=1)
+            last_day_month = last_day_month.replace(year=self.month_year.year+1)
+            last_day_month = last_day_month - timedelta(days=1)
+
         json = {
             'employee_ids': [],
             'company_name': self.env.company.name,
@@ -49,7 +55,12 @@ class HrAttendanceWizard(models.TransientModel):
             ###################
             date_contract = fields.Date.context_today(self, fields.Datetime.to_datetime(date_contract))
             first_day = fields.Datetime.to_datetime(date_contract)
-            last_day = fields.Datetime.to_datetime(date_contract.replace(month=date_contract.month + 1))
+            if not self.month_year.month == 12:
+                last_day = fields.Datetime.to_datetime(date_contract.replace(month=date_contract.month + 1))
+            else:
+                last_day = fields.Datetime.to_datetime(date_contract.replace(month=1))
+                last_day = last_day.replace(year=date_contract.year + 1)
+
 
             hours_week = employee.resource_calendar_id.name
             list_time = employee.list_work_time_per_day(first_day, last_day)
@@ -95,7 +106,7 @@ class HrAttendanceWizard(models.TransientModel):
                 # Saturday and Sunday -> Public Holiday
                 if today.weekday() == 5 or today.weekday() == 6:
                     absence = "public_holiday"
-                else:
+                if cont_day != len(list_time):
                     if list_time[cont_day][0].day == day:
                         hours_day = list_time[cont_day][1]
                         cont_day += 1
@@ -105,7 +116,17 @@ class HrAttendanceWizard(models.TransientModel):
                 # hr_attendance_ids = employee.attendance_ids.filtered(lambda x: x.check_in >= fields.Datetime.to_datetime(date_start_order) and x.check_out <= fields.Datetime.to_datetime(date_end_order)).sorted("check_in")
 
                 negative = False
-                if len(hr_attendance_ids) >= 2:
+                if len(hr_attendance_ids) == 1:
+                    morning_entry = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_in).strftime("%H:%M:%S")
+                    morning_exit = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_out).strftime("%H:%M:%S")
+                    morning_time = hr_attendance_ids[0].check_out - hr_attendance_ids[0].check_in
+                    total_day = morning_time
+                    if total_day > timedelta(hours=hours_day):
+                        total_exceeded = total_day - timedelta(hours=hours_day)
+                    else:
+                        total_exceeded = timedelta(hours=hours_day) - total_day
+                        negative = True
+                elif len(hr_attendance_ids) >= 2:
                     morning_entry = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_in).strftime("%H:%M:%S")
                     morning_exit = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_out).strftime("%H:%M:%S")
                     morning_time = hr_attendance_ids[0].check_out - hr_attendance_ids[0].check_in
