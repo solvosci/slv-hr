@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_attendance_menu_filter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-03 17:46+0000\n"
+"PO-Revision-Date: 2023-02-03 17:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_menu_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_inherit
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_pivot_inherit
+msgid "Last Week"
+msgstr ""
+
+#. module: hr_attendance_menu_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_inherit
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_pivot_inherit
+msgid "Today"
+msgstr ""
+
+#. module: hr_attendance_menu_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_inherit
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_pivot_inherit
+msgid "Week"
+msgstr ""
+
+#. module: hr_attendance_menu_filter
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_inherit
+#: model_terms:ir.ui.view,arch_db:hr_attendance_menu_filter.hr_attendance_menu_filter_search_pivot_inherit
+msgid "Yesterday"
+msgstr ""
