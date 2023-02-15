@@ -77,6 +77,8 @@ class HrAttendanceWizard(models.TransientModel):
                 'exceeded_hours': timedelta(seconds=0)
             }
             cont_day = 0
+            total_exceeded_days = timedelta(seconds=0)
+            total_negavite = False
             for day in range(1, last_day_month.day + 1):
                 today = date(self.month_year.year, self.month_year.month, day)
                 date_order = fields.Date.context_today(self, fields.Datetime.to_datetime(today))
@@ -114,6 +116,14 @@ class HrAttendanceWizard(models.TransientModel):
                 hr_attendance_ids = employee.attendance_ids.filtered(lambda x: fields.Datetime.context_timestamp(self, x.check_in).date() == date_order).sorted("check_in")
 
                 # hr_attendance_ids = employee.attendance_ids.filtered(lambda x: x.check_in >= fields.Datetime.to_datetime(date_start_order) and x.check_out <= fields.Datetime.to_datetime(date_end_order)).sorted("check_in")
+                morning_entry = False
+                morning_exit = False
+                morning_time = False
+                afternoon_entry = False
+                afternoon_exit = False
+                afternoon_time = False
+                total_day = False
+                total_exceeded = False
 
                 negative = False
                 if len(hr_attendance_ids) == 1:
@@ -126,6 +136,19 @@ class HrAttendanceWizard(models.TransientModel):
                     else:
                         total_exceeded = timedelta(hours=hours_day) - total_day
                         negative = True
+                    if hr_leave_id.holiday_status_id.type_hr_report == 'day_off':
+                        shift_ids = self.employee_ids.resource_calendar_id.attendance_ids.filtered(lambda x: x.dayofweek == str(today.weekday()))
+                        time_total_day = shift_ids[0].hour_to - shift_ids[0].hour_from
+                        if len(shift_ids) > 1:
+                            time_afternoon = shift_ids[1].hour_to - shift_ids[1].hour_from
+                            time_total_day = time_total_day + time_afternoon
+                        if timedelta(hours=time_total_day) > total_day:
+                            total_exceeded = timedelta(hours=time_total_day) - total_day
+                            negative = True
+                        else:
+                            total_exceeded = total_day - timedelta(hours=time_total_day)
+                            negative = False
+
                 elif len(hr_attendance_ids) >= 2:
                     morning_entry = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_in).strftime("%H:%M:%S")
                     morning_exit = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_out).strftime("%H:%M:%S")
@@ -139,17 +162,19 @@ class HrAttendanceWizard(models.TransientModel):
                     else:
                         total_exceeded = timedelta(hours=hours_day) - total_day
                         negative = True
-                else:
-                    morning_entry = False
-                    morning_exit = False
-                    morning_time = False
-                    afternoon_entry = False
-                    afternoon_exit = False
-                    afternoon_time = False
-                    total_day = False
-                    total_exceeded = False
+                elif hours_day > 0 and len(hr_attendance_ids) == 0:
+                    total_day = timedelta(hours=0)
+                    total_exceeded = timedelta(hours=hours_day)
+                    negative = True
 
-               
+                    if hr_leave_id.holiday_status_id.type_hr_report == 'day_off':
+                        shift_ids = self.employee_ids.resource_calendar_id.attendance_ids.filtered(lambda x: x.dayofweek == str(today.weekday()))
+                        time_total_day = shift_ids[0].hour_to - shift_ids[0].hour_from
+                        if len(shift_ids) > 1:
+                            time_afternoon = shift_ids[1].hour_to - shift_ids[1].hour_from
+                            time_total_day = time_total_day + time_afternoon
+                        total_exceeded = timedelta(hours=time_total_day) - total_day
+
                 new_day = {
                     'day': day,
                     'total_day': total_day,
@@ -167,15 +192,31 @@ class HrAttendanceWizard(models.TransientModel):
                         'time': afternoon_time
                     },
                 }
-                if total_day:
+                if total_day or total_day == timedelta(hours=0):
                     json_employee['total_hours'] += total_day
-                    if negative:
-                        json_employee['exceeded_hours'] -= total_exceeded
+                    if not total_negavite:
+                        if negative:
+                            if json_employee['exceeded_hours'] > total_exceeded:
+                                json_employee['exceeded_hours'] -= total_exceeded
+                            else:
+                                json_employee['exceeded_hours'] = total_exceeded - json_employee['exceeded_hours']
+                                total_negavite = True
+                        else:
+                            json_employee['exceeded_hours'] += total_exceeded
                     else:
-                        json_employee['exceeded_hours'] += total_exceeded
+                        if negative:
+                            json_employee['exceeded_hours'] += total_exceeded
+                        else:
+                            if json_employee['exceeded_hours'] > total_exceeded:
+                                json_employee['exceeded_hours'] -= total_exceeded
+                            else:
+                                json_employee['exceeded_hours'] = total_exceeded - json_employee['exceeded_hours']
+                                total_negavite = False
                 json_employee['days'].append(new_day)
 
             json_employee['total_hours'] = self.calculate_time(json_employee['total_hours'].days, json_employee['total_hours'].seconds)
             json_employee['exceeded_hours'] = self.calculate_time(json_employee['exceeded_hours'].days, json_employee['exceeded_hours'].seconds)
+            if total_negavite:
+                json_employee['exceeded_hours'] = '%s %s' % ('-', json_employee['exceeded_hours'])
             json['employee_ids'].append(json_employee)
         return self.env.ref("hr_attendance_monthly_report.action_report_hr_attendance_monthly").report_action(None, data=json)
