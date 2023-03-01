@@ -326,6 +326,12 @@ msgid "TIME"
 msgstr "TIEMPO"
 
 #. module: hr_attendance_monthly_report
+#: code:addons/hr_attendance_monthly_report/wizards/hr_attendance_wizard.py:0
+#, python-format
+msgid "The employee %s hasn't check out on day: %s"
+msgstr "El empleado %s no ha fichado la salida, el día: %s"
+
+#. module: hr_attendance_monthly_report
 #: model:ir.model,name:hr_attendance_monthly_report.model_hr_leave_type
 msgid "Time Off Type"
 msgstr "Tipo de permiso"

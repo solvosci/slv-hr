@@ -1,8 +1,10 @@
 # © 2021 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
-from odoo import models, fields
+from odoo import models, fields, _
 from datetime import date, datetime, timedelta
+from odoo.exceptions import ValidationError
+
 
 
 class HrAttendanceWizard(models.TransientModel):
@@ -127,6 +129,8 @@ class HrAttendanceWizard(models.TransientModel):
 
                 negative = False
                 if len(hr_attendance_ids) == 1:
+                    if not hr_attendance_ids[0].check_out:
+                        raise ValidationError(_("The employee %s hasn't check out on day: %s") % (hr_attendance_ids.employee_id.name, day))
                     morning_entry = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_in).strftime("%H:%M:%S")
                     morning_exit = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_out).strftime("%H:%M:%S")
                     morning_time = hr_attendance_ids[0].check_out - hr_attendance_ids[0].check_in
@@ -150,6 +154,8 @@ class HrAttendanceWizard(models.TransientModel):
                             negative = False
 
                 elif len(hr_attendance_ids) >= 2:
+                    if not hr_attendance_ids[0].check_out or not hr_attendance_ids[1].check_out:
+                        raise ValidationError(_("The employee %s hasn't check out on day: %s") % (hr_attendance_ids.employee_id.name, day))
                     morning_entry = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_in).strftime("%H:%M:%S")
                     morning_exit = fields.Datetime.context_timestamp(self, hr_attendance_ids[0].check_out).strftime("%H:%M:%S")
                     morning_time = hr_attendance_ids[0].check_out - hr_attendance_ids[0].check_in
