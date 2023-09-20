@@ -5,8 +5,8 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
-class HrHolidays(models.Model):
-    _inherit = "hr.holidays"
+class HrLeave(models.Model):
+    _inherit = "hr.leave"
 
     manager_user_id = fields.Many2one(
         comodel_name="res.users",
@@ -18,7 +18,6 @@ class HrHolidays(models.Model):
         """,
     )
 
-    @api.multi
     @api.depends("employee_id", "employee_id.parent_id")
     def _compute_manager_user_id(self):
         for holiday in self:
@@ -28,26 +27,23 @@ class HrHolidays(models.Model):
                 or holiday.employee_id.user_id
             )
 
-    @api.multi
     def action_approve(self):
         for holiday in self:
             holiday._check_security_manager_rights()
-        super(HrHolidays, self).action_approve()
+        super().action_approve()
 
-    @api.multi
     def action_validate(self):
         for holiday in self:
             holiday._check_security_manager_rights()
-        super(HrHolidays, self).action_validate()
+        super().action_validate()
 
-    @api.multi
     def action_refuse(self):
         for holiday in self:
             holiday._check_security_manager_rights()
-        super(HrHolidays, self).action_refuse()
+        super().action_refuse()
 
-    @api.one
     def _check_security_manager_rights(self):
+        self.ensure_one()
         if (
             self.manager_user_id.id != self.env.user.id
             and
