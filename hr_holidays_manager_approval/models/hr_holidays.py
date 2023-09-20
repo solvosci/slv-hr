@@ -51,10 +51,15 @@ class HrLeave(models.Model):
                 "hr_holidays.group_hr_holidays_manager"
             )
         ):
-            raise UserError(
-                _(
+            err_msg = ""
+            if self.manager_user_id:
+                err_msg = _(
                     "Only %s or a Leave Manager can approve/validate/refuse"
                     " leaves for the employee %s"
-                )
-                % (self.manager_user_id.name, self.employee_id.name)
-            )
+                ) % (self.manager_user_id.name, self.employee_id.name)
+            else:
+                err_msg = _(
+                    "Only a Leave Manager can approve/validate/refuse"
+                    " leaves for the employee %s"
+                ) % self.employee_id.name
+            raise UserError(err_msg)
