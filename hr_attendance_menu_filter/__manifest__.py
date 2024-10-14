@@ -7,15 +7,15 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "15.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Operations/HR",
     "website": "https://github.com/solvosci/slv-hr",
     "depends": [
         "hr_attendance"
     ],
     "data": [   
-        "report/hr_attendance_report_view.xml",
         "views/hr_attendance_view.xml",
     ],
+    "uninstall_hook": "uninstall_hook",
     'installable': True,
 }
