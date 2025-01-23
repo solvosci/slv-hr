@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_leave_form_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.form (in hr_leave_create_date)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='request_date_from']" position="before">
+                <field name="create_date" attrs="{'invisible': [('create_date', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_hr_leave_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.tree (in hr_holidays_create_date)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_from']" position="before">
+                <field name="create_date" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_hr_leave_search_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.search (in hr_holidays_create_date)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_leaves']" position="after">
+                <separator/>
+                <filter string="Creation Date" name="filter_creation_date" date="create_date" />
+            </xpath>
+            <xpath expr="//filter[@name='group_type']" position="after">
+                <filter name="group_create_date" string="Creation date" context="{'group_by':'create_date'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

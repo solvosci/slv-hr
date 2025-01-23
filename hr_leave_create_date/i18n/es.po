@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_leave_create_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 07:15+0000\n"
+"PO-Revision-Date: 2025-01-24 08:15+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: hr_leave_create_date
+#: model_terms:ir.ui.view,arch_db:hr_leave_create_date.view_hr_leave_search_inherit
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+#. module: hr_leave_create_date
+#: model_terms:ir.ui.view,arch_db:hr_leave_create_date.view_hr_leave_search_inherit
+msgid "Creation date"
+msgstr "Fecha de creación"
