@@ -1,0 +1,1 @@
+Adds colors in tree view to the leave status
