@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.view.form (in hr_contract_tax_total)</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='salary']" position="after">
+                <group name="taxes">
+                    <label for="tax_total_pct"/>
+                    <div class="o_row" name="tax_total_pct">
+                        <field name="tax_total_pct" widget="percentage" required="1"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_contract_history_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.history.view.form (in hr_contract_tax_total)</field>
+        <field name="model">hr.contract.history</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_history_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_ids']//field[@name='wage']" position="after">
+                <field name="tax_total_pct" widget="percentage" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
