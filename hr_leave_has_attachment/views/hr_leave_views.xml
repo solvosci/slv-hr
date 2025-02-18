@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_leave_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.tree (in hr_leave_has_attachment)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="has_attachment" string="With Atch." optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_hr_leave_search_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.search (in hr_leave_has_attachment)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_leaves']" position="after">
+                <separator/>
+                <filter string="Attachment" domain="[('has_attachment', '=', True)]" name="filter_has_attachment" />
+            </xpath>
+            <xpath expr="//filter[@name='group_type']" position="after">
+                <filter name="group_has_attachment" string="Attachment" context="{'group_by':'has_attachment'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
