@@ -1,0 +1,435 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_leave_no_validation_editable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-19 08:34+0000\n"
+"PO-Revision-Date: 2025-06-19 08:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__0
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__0
+msgid "0:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__0_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__0_5
+msgid "0:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__10
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__10
+msgid "10:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__22
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__22
+msgid "10:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__10_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__10_5
+msgid "10:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__22_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__22_5
+msgid "10:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__11
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__11
+msgid "11:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__23
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__23
+msgid "11:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__11_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__11_5
+msgid "11:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__23_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__23_5
+msgid "11:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__12
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__12
+msgid "12:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__12_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__12_5
+msgid "12:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__1
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__1
+msgid "1:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__13
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__13
+msgid "1:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__1_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__1_5
+msgid "1:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__13_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__13_5
+msgid "1:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__2
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__2
+msgid "2:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__14
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__14
+msgid "2:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__2_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__2_5
+msgid "2:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__14_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__14_5
+msgid "2:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__3
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__3
+msgid "3:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__15
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__15
+msgid "3:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__3_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__3_5
+msgid "3:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__15_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__15_5
+msgid "3:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__4
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__4
+msgid "4:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__16
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__16
+msgid "4:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__4_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__4_5
+msgid "4:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__16_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__16_5
+msgid "4:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__5
+msgid "5:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__17
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__17
+msgid "5:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__5_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__5_5
+msgid "5:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__17_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__17_5
+msgid "5:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__6
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__6
+msgid "6:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__18
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__18
+msgid "6:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__6_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__6_5
+msgid "6:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__18_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__18_5
+msgid "6:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__7
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__7
+msgid "7:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__19
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__19
+msgid "7:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__7_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__7_5
+msgid "7:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__19_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__19_5
+msgid "7:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__8
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__8
+msgid "8:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__20
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__20
+msgid "8:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__8_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__8_5
+msgid "8:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__20_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__20_5
+msgid "8:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__9
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__9
+msgid "9:00 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__21
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__21
+msgid "9:00 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__9_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__9_5
+msgid "9:30 AM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_from__21_5
+#: model:ir.model.fields.selection,name:hr_leave_no_validation_editable.selection__hr_leave_edit_data_wizard__request_hour_to__21_5
+msgid "9:30 PM"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model_terms:ir.ui.view,arch_db:hr_leave_no_validation_editable.hr_leave_edit_data_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__name
+msgid "Description"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model_terms:ir.ui.view,arch_db:hr_leave_no_validation_editable.hr_leave_edit_data_wizard_view_form
+msgid "Edit Data"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__date_to
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_date_to
+msgid "End Date"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_hour_to
+msgid "Hour end"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_hour_from
+msgid "Hour from"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__hr_leave_id
+msgid "Leave"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: code:addons/hr_leave_no_validation_editable/models/hr_leave.py:0
+#, python-format
+msgid ""
+"Only your own leave that do not require validation before today can be "
+"edited."
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_unit_custom
+msgid "Request Unit Custom"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_unit_half
+msgid "Request Unit Half"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_unit_hours
+msgid "Request Unit Hours"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__date_from
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__request_date_from
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model,name:hr_leave_no_validation_editable.model_hr_leave
+msgid "Time Off"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__holiday_status_id
+msgid "Time Off Type"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model.fields,field_description:hr_leave_no_validation_editable.field_hr_leave_edit_data_wizard__tz
+msgid "Tz"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model_terms:ir.ui.view,arch_db:hr_leave_no_validation_editable.hr_leave_view_form
+msgid "Update Data"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: code:addons/hr_leave_no_validation_editable/models/hr_leave.py:0
+#, python-format
+msgid "Update Hr Leave"
+msgstr ""
+
+#. module: hr_leave_no_validation_editable
+#: model:ir.model,name:hr_leave_no_validation_editable.model_hr_leave_edit_data_wizard
+msgid "hr.leave.edit.data.wizard"
+msgstr ""
