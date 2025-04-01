@@ -13,7 +13,7 @@ class IrAttachment(models.Model):
         leave_ids = res.filtered(lambda x: x.res_model == 'hr.leave').mapped("res_id")
         if leave_ids:
             leave_ids = self.env["hr.leave"].browse(leave_ids)
-            leave_ids.filtered(lambda x: not x.has_attachment).write({"has_attachment": True})
+            leave_ids.filtered(lambda x: not x.has_attachment).sudo().write({"has_attachment": True})
         return res
 
     def unlink(self):
