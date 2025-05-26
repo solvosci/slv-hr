@@ -22,5 +22,5 @@ class IrAttachment(models.Model):
             hr_leave_ids |= self.env['hr.leave'].browse(record.res_id).exists()
         res = super(IrAttachment, self).unlink()
         for record in hr_leave_ids:
-            record.has_attachment = bool(record.message_attachment_count)
+            record.sudo().has_attachment = bool(record.message_attachment_count)
         return res
