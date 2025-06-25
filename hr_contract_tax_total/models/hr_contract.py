@@ -16,4 +16,4 @@ class HrContract(models.Model):
     def _check_tax_total_pct(self):
         for employee in self:
             if not (0 <= employee.tax_total_pct <= 1):
-                raise ValidationError(_("The tax must be between 0 and 100. The tax of %s is %s%%") % (employee.employee_id.name, employee.tax_total_pct * 100))
+                raise ValidationError(_("The tax must be between 0 and 100. The tax of %(employee)s is %(tax)s%%", employee=employee.employee_id.name, tax=employee.tax_total_pct * 100))

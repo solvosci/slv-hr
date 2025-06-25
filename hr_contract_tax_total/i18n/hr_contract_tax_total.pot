@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 09:20+0000\n"
-"PO-Revision-Date: 2025-02-03 09:20+0000\n"
+"POT-Creation-Date: 2025-06-26 13:02+0000\n"
+"PO-Revision-Date: 2025-06-26 13:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,9 @@ msgid "Personal Income Tax"
 msgstr ""
 
 #. module: hr_contract_tax_total
+#. odoo-python
 #: code:addons/hr_contract_tax_total/models/hr_contract.py:0
 #, python-format
-msgid "The tax must be between 0 and 100. The tax of %s is %s%%"
+msgid ""
+"The tax must be between 0 and 100. The tax of %(employee)s is %(tax)s%%"
 msgstr ""
