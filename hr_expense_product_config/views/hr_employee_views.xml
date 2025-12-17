@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form (in hr_expense_product_config)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='identification_group']/.." position="after">
+                <group string="Expenses configuracion" name="expenses_config">
+                    <field name="expense_config_ids">
+                        <tree editable="bottom">
+                            <field name="product_id" string="Category"/>
+                            <field name="payment_mode"/>
+                            <field name="has_expense_limit"/>
+                            <field name="expense_limit_qty"
+                                widget="monetary"
+                                invisible="not has_expense_limit"/>
+                            <field name="company_currency_id" column_invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
