@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_hr_leave_tree_inherit" model="ir.ui.view">
         <field name="name">hr.leave.tree (in hr_leave_has_attachment)</field>
