@@ -9,7 +9,7 @@ class HrLeave(models.Model):
     _inherit = 'hr.leave'
 
     def action_update_hr_leave_wizard(self):
-        if self.env.user != self.employee_id.user_id or self.holiday_status_id.validation_type != 'no_validation' or self.request_date_from <= fields.Date.today() or self.request_unit_half:
+        if self.env.user != self.employee_id.user_id or self.holiday_status_id.leave_validation_type != 'no_validation' or self.request_date_from <= fields.Date.today() or self.request_unit_half:
             raise ValidationError(_("Only your own leave that do not require validation before today can be edited."))
         wizard_id = self.env['hr.leave.edit.data.wizard'].sudo().create({
             'hr_leave_id': self.id,

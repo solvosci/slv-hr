@@ -3,9 +3,7 @@
 from odoo import models, fields, api, _
 from datetime import datetime, time
 from pytz import timezone, UTC
-from odoo.addons.resource.models.resource import float_to_time
-import math
-import pytz
+from odoo.addons.resource.models.utils import float_to_time
 
 class HrLeaveEditDataWizard(models.TransientModel):
     _name = 'hr.leave.edit.data.wizard'
@@ -144,7 +142,7 @@ class HrLeaveEditDataWizard(models.TransientModel):
         self.hr_leave_id.sudo().action_refuse()
         self.hr_leave_id.sudo().action_draft()
         self.hr_leave_id.sudo().write(data)
-        self.hr_leave_id.sudo()._onchange_leave_dates()
+        self.hr_leave_id.sudo()._compute_number_of_days_display()
         self.hr_leave_id.sudo()._compute_number_of_hours_display()
         self.hr_leave_id.sudo()._compute_duration_display()
         self.hr_leave_id.sudo().action_confirm()
