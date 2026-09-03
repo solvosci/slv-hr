@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_leave_validator_responsible_follow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-14 07:26+0000\n"
+"PO-Revision-Date: 2025-03-14 07:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_leave_validator_responsible_follow
+#: code:addons/hr_leave_validator_responsible_follow/models/hr_leave.py:0
+#, python-format
+msgid "New %s Request created by %s from %s to %s"
+msgstr ""
+
+#. module: hr_leave_validator_responsible_follow
+#: model:ir.model,name:hr_leave_validator_responsible_follow.model_hr_leave
+msgid "Time Off"
+msgstr ""
